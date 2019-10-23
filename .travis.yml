@@ -1,0 +1,30 @@
+language: cpp
+compiler:
+    - gcc
+os:
+    - linux
+    - osx
+before_install:
+    - MINICONDA_VERSION=latest
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then MINICONDA_OS=Linux; else MINICONDA_OS=MacOSX; fi
+    - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then MINICONDA_PY=2; else MINICONDA_PY=3; fi
+    - wget https://repo.anaconda.com/miniconda/Miniconda$MINICONDA_PY-$MINICONDA_VERSION-$MINICONDA_OS-x86_64.sh -O miniconda.sh
+    - bash miniconda.sh -b -p "$HOME"/miniconda
+    - source "$HOME"/miniconda/etc/profile.d/conda.sh
+    - hash -r 
+    - conda config --set always_yes yes --set changeps1 no
+    - conda config --add channels conda-forge
+    - conda update -q conda
+    - conda install conda-build
+    - conda info -a
+    - export LANG=en_US.UTF-8
+install:
+    - conda build ./recipe
+    - conda create -n test tempo2 --use-local
+script:
+    - conda activate test
+    - tempo2 -h
+after_success:
+    - export PKGFILE=$(conda build recipe --output)
+    - conda install anaconda-client
+    - anaconda -t $CONDA_UPLOAD_TOKEN upload -u demorest --force $PKGFILE

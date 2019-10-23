@@ -1,0 +1,43 @@
+{% set name = "tempo2" %}
+{% set version = "2019.01.1" %}
+
+package:
+    name: "{{ name|lower }}"
+    version: "{{ version }}"
+
+source:
+    # eg, https://bitbucket.org/psrsoft/tempo2/downloads/tempo2-2019.01.1.tar.gz
+    url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/{{ name }}-{{ version }}.tar.gz"
+    sha256: 9438518e8b9af4a917f8d8e78da9b83b2cc716d5e7841b0e7b82596e52774848
+        
+build:
+    number: 1
+
+test:
+    source_files:
+        - tests/test_data/test_de430.par
+        - tests/test_data/test_de430.tim
+    commands:
+        - tempo2 -f tests/test_data/test_de430.par tests/test_data/test_de430.tim
+
+requirements:
+    build:
+        - {{ compiler('cxx') }}
+        - {{ compiler('c') }}
+        - {{ compiler('fortran') }}
+    host:
+        - cfitsio
+        - pgplot
+        - gsl
+        - fftw
+        - libblas
+        - libcblas
+        - liblapack
+    run:
+        - cfitsio
+        - pgplot
+        - gsl
+        - fftw
+        - libblas
+        - libcblas
+        - liblapack
