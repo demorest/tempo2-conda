@@ -11,7 +11,12 @@ make install
 make -j2 plugins
 make plugins-install
 
-cp -a T2runtime/* $TEMPO2/
+# Copy runtime stuff except clock files, which are 
+# in a separate package
+for dir in  atmosphere ephemeris example_data observatory plugin_data solarWindModel
+do
+    cp -a T2runtime/$dir $TEMPO2/
+done
 
 # This foo will make conda automatically define a TEMPO2 env variable
 # when the environment is activated.

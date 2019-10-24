@@ -41,3 +41,4 @@ requirements:
         - libblas
         - libcblas
         - liblapack
+        - tempo-clockfiles
