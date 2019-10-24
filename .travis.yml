@@ -14,16 +14,14 @@ before_install:
     - hash -r 
     - conda config --set always_yes yes --set changeps1 no
     - conda config --add channels conda-forge
+    - conda config --add channels demorest
     - conda update -q conda
     - conda install conda-build
     - conda info -a
     - export LANG=en_US.UTF-8
 install:
-    - conda build ./recipe
-    - conda create -n test tempo2 --use-local
 script:
-    - conda activate test
-    - tempo2 -h
+    - conda build ./recipe
 after_success:
     - export PKGFILE=$(conda build recipe --output)
     - conda install anaconda-client
