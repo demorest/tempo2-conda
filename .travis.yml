@@ -25,4 +25,5 @@ script:
 after_success:
     - export PKGFILE=$(conda build recipe --output)
     - conda install anaconda-client
+    - conda activate
     - anaconda -t $CONDA_UPLOAD_TOKEN upload -u demorest --force $PKGFILE
