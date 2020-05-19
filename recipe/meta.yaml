@@ -9,7 +9,7 @@ source:
     # eg, https://bitbucket.org/psrsoft/tempo2/downloads/tempo2-2019.01.1.tar.gz
     #url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/{{ name }}-{{ version }}.tar.gz"
     ## This is v2020.04.1 but not tagged
-    url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/8e8d645ba800.tar.gz"
+    url: "https://bitbucket.org/psrsoft/{{ name }}/get/8e8d645ba800.tar.gz"
     sha256: be22a26acb4039f4a62b9e8c016e69cac52dc1a04881e9fb84f6c70392a6f383
         
 build:
