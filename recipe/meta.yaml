@@ -1,5 +1,5 @@
 {% set name = "tempo2" %}
-{% set version = "2019.01.1" %}
+{% set version = "2020.04.1" %}
 
 package:
     name: "{{ name|lower }}"
@@ -7,8 +7,10 @@ package:
 
 source:
     # eg, https://bitbucket.org/psrsoft/tempo2/downloads/tempo2-2019.01.1.tar.gz
-    url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/{{ name }}-{{ version }}.tar.gz"
-    sha256: 9438518e8b9af4a917f8d8e78da9b83b2cc716d5e7841b0e7b82596e52774848
+    #url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/{{ name }}-{{ version }}.tar.gz"
+    ## This is v2020.04.1 but not tagged
+    url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/8e8d645ba800.tar.gz"
+    sha256: be22a26acb4039f4a62b9e8c016e69cac52dc1a04881e9fb84f6c70392a6f383
         
 build:
     number: 1
@@ -25,6 +27,9 @@ requirements:
         - {{ compiler('cxx') }}
         - {{ compiler('c') }}
         - {{ compiler('fortran') }}
+        - autoconf
+        - automake
+        - libtool
     host:
         - cfitsio
         - pgplot
