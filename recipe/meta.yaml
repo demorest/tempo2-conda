@@ -10,7 +10,7 @@ source:
     #url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/{{ name }}-{{ version }}.tar.gz"
     ## This is v2020.04.1 but not tagged
     url: "https://bitbucket.org/psrsoft/{{ name }}/get/8e8d645ba800.tar.gz"
-    sha256: be22a26acb4039f4a62b9e8c016e69cac52dc1a04881e9fb84f6c70392a6f383
+    sha256: f27f205b59ad931f9a0c8fb739274b56999259947427aa6da3a832bcc27f5cb9
         
 build:
     number: 1
