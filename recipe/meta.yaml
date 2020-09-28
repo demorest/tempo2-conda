@@ -1,5 +1,5 @@
 {% set name = "tempo2" %}
-{% set version = "2020.04.1" %}
+{% set version = "2020.07.1" %}
 
 package:
     name: "{{ name|lower }}"
@@ -8,9 +8,9 @@ package:
 source:
     # eg, https://bitbucket.org/psrsoft/tempo2/downloads/tempo2-2019.01.1.tar.gz
     #url: "https://bitbucket.org/psrsoft/{{ name }}/downloads/{{ name }}-{{ version }}.tar.gz"
-    ## This is v2020.04.1 but not tagged
-    url: "https://bitbucket.org/psrsoft/{{ name }}/get/8e8d645ba800.tar.gz"
-    sha256: f27f205b59ad931f9a0c8fb739274b56999259947427aa6da3a832bcc27f5cb9
+    ## This is v2020.07.1 but not tagged
+    url: "https://bitbucket.org/psrsoft/{{ name }}/get/b054862c0788.tar.gz"
+    sha256: d2d1973cc2fd660c04fc57721ab6236bf2ea197dacc9e1cc1cbe96c6cf6f27b1
         
 build:
     number: 1
